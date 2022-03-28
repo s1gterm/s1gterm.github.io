@@ -21,11 +21,11 @@
 locale                   : "en-US"
 
 name                     : &name "s1gterm" # &name is a YAML anchor which can be *referenced later
-description              : &description "The compiled writings of a nerd."
+description              : &description "Bad stock photos, marginaly better infosec content."
 
-title: s1gterm
+#title: s1gterm
 title_separator          : "-"
-subtitle: I guess we just take it apart?
+#subtitle: I guess we just take it apart?
 repository: s1gterm/s1gterm.github.io
 email: root@s1gterm.com
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -55,6 +55,7 @@ whitelist:
   - jemoji
   - jekyll-include-cache
 
+logo: "assets/images/logo_size_invert.jpg"
 
 
 minimal_mistakes_skin: "contrast"
@@ -67,7 +68,7 @@ twitter:
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
 #  avatar           : "/assets/images/michael-rose.jpg"
-  bio              : "Just a simple nerd doing simple nerdy things."
+  bio              : "Bad stock photos, marginaly better infosec content."
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
@@ -110,33 +111,14 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
+      comments: false
       share: true
-      related: true
+      classes: wide
+      #related: true  # -- Turn this on later on
   # _pages
   - scope:
       path: "_pages"
       type: pages
     values:
       layout: single
-      author_profile: true
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+      author_profile: false
