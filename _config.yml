@@ -30,7 +30,7 @@ twitter_username: s1gterm
 github_username:  s1gterm
 
 # Build settings
-theme: minima
+theme: jekyll-theme-tactile
 plugins:
   - jekyll-feed
 
