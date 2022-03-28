@@ -17,22 +17,110 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+# Site Settings
+locale                   : "en-US"
+
+name                     : &name "s1gterm" # &name is a YAML anchor which can be *referenced later
+description              : &description "The compiled writings of a nerd."
 
 title: s1gterm
-email: s1gterm.143@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+title_separator          : "-"
+subtitle: I guess we just take it apart?
+repository: s1gterm/s1gterm.github.io
+email: root@s1gterm.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: s1gterm
 github_username:  s1gterm
+words_per_minute         : 200
 
 # Build settings
-theme: minima
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+
+
+# Plugins (previously gems:)
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+
+
+minimal_mistakes_skin: "contrast"
+
+include: ["_pages"]
+
+twitter:
+  username               : &twitter "s1gterm"
+
+author:
+  name             : *name # *name is a YAML reference pointing to the &anchor earlier
+#  avatar           : "/assets/images/michael-rose.jpg"
+  bio              : "Just a simple nerd doing simple nerdy things."
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/s1gterm"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/s1gterm"
+
+
+# Outputting
+#permalink: /:categories/
+# paginate: 5 # amount of posts to show
+# paginate_path: /page:num/
+timezone: America/New_York # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Site Footer
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/s1gterm"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/s1gterm"
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
