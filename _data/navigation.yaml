@@ -3,3 +3,5 @@ main:
     url: /about/
   - title: "Posts"
     url: /
+  - title: "CTF101"
+    url: /ctf101/
