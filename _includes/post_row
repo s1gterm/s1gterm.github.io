@@ -1,0 +1,34 @@
+{% if include.wrapper == 'start' or include.wrapper == 'both' %}
+<div class="feature__wrapper" style="border-bottom:none;">
+  {% endif %}
+
+  <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
+    <div class="archive__item">
+
+      {% if include.image_path %}
+      <div class="archive__item-body" style="background-image: background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ include.image_path | relative_url }}); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 1em 0.25em; min-height: 6em;">
+        <h2 class="archive__item-title" style="color: #fff; text-shadow:1px 1px 4px rgb(0 0 0 / 50%)"> {{ include.title }}</h2>
+      </div>
+      {% endif %}
+
+      <div class="archive__item-body">
+        
+
+        {% if include.excerpt %}
+        <div class="archive__item-excerpt">
+          {{ include.excerpt | markdownify }}
+        </div>
+        {% endif %}
+
+        {% if include.url %}
+        <p><a href="{{ include.url | relative_url }}" class="btn {{ include.btn_class }}">{{ include.btn_label |
+            default:
+            site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% if include.wrapper == 'end' or include.wrapper == 'both' %}
+</div>
+{% endif %}

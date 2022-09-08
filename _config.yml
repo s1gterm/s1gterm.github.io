@@ -23,16 +23,18 @@ locale                   : "en-US"
 name                     : &name "s1gterm" # &name is a YAML anchor which can be *referenced later
 description              : &description "Bad stock photos, marginaly better infosec content."
 
-#title: s1gterm
+title: *name
+masthead_title: "S1GTERM"
 title_separator          : "-"
 #subtitle: I guess we just take it apart?
 repository: s1gterm/s1gterm.github.io
 email: root@s1gterm.com
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.s1gterm.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: s1gterm
 github_username:  s1gterm
-words_per_minute         : 200
+words_per_minute: 200
+#date_format: "%m/%d/%Y"
 
 # Build settings
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
@@ -67,7 +69,7 @@ twitter:
 
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
-#  avatar           : "/assets/images/michael-rose.jpg"
+  avatar           : "/assets/images/logo_size_invert.jpg"
   bio              : "Bad stock photos, marginaly better infosec content."
   links:
     - label: "Twitter"
@@ -110,10 +112,15 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      show_date: true
+      #read_time: true
       comments: false
       share: true
       classes: wide
+      header:
+        show_overlay_excerpt: false
+        overlay_color: "#000"
+        overlay_filter: "0.5"
       #related: true  # -- Turn this on later on
   # _pages
   - scope:
@@ -121,5 +128,5 @@ defaults:
       type: pages
     values:
       layout: single
-      
       author_profile: false
+

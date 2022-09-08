@@ -1,0 +1,43 @@
+{% capture overlay_img_path %}{{ include.overlay_image | relative_url }}{% endcapture %}
+
+{% if include.overlay_filter contains "gradient" %}
+  {% capture overlay_filter %}{{ include.overlay_filter }}{% endcapture %}
+{% elsif include.overlay_filter contains "rgba" %}
+  {% capture overlay_filter %}{{ include.overlay_filter }}{% endcapture %}
+  {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
+{% elsif include.overlay_filter %}
+  {% capture overlay_filter %}rgba(0, 0, 0, {{ include.overlay_filter }}){% endcapture %}
+  {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
+{% endif %}
+
+{% if include.image_description %}
+  {% assign image_description = include.image_description %}
+{% else %}
+  {% assign image_description = page.title %}
+{% endif %}
+
+{% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
+
+<div class="page__hero{% if include.overlay_color or include.overlay_image %}--overlay{% endif %}"
+  style="{% if include.overlay_color %}background-color: {{ include.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+>
+  {% if include.overlay_color or include.overlay_image %}
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+          {{ include.title | markdownify | remove: "<p>" | remove: "</p>" }}
+      </h1>
+      {% if include.excerpt %}
+        <p class="page__lead">{{ include.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+      {% endif %}
+      {% if include.url %}
+        <p><a href="{{ include.url | relative_url }}" class="btn btn--light-outline btn--large">{{ include.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+      {% endif %}
+      
+    </div>
+  {% else %}
+    <img src="{{ include.image | relative_url }}" alt="{{ image_description }}" class="page__hero-image">
+  {% endif %}
+  {% if include.caption %}
+    <span class="page__hero-caption">{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+  {% endif %}
+</div>
