@@ -64,17 +64,17 @@ minimal_mistakes_skin: "contrast"
 
 include: ["_pages"]
 
-twitter:
-  username               : &twitter "s1gterm"
+#twitter:
+#  username               : &twitter "s1gterm"
 
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
   avatar           : "/assets/images/logo_size_invert.jpg"
   bio              : "Bad stock photos, marginaly better infosec content."
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/s1gterm"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://infosec.exchange/@s1gterm"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/s1gterm"
@@ -89,9 +89,12 @@ timezone: America/New_York # https://en.wikipedia.org/wiki/List_of_tz_database_t
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/s1gterm"
+#    - label: "Twitter"
+#      icon: "fab fa-fw fa-twitter-square"
+#      url: "https://twitter.com/s1gterm"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://infosec.exchange/@s1gterm"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/s1gterm"
@@ -115,7 +118,7 @@ defaults:
       show_date: true
       #read_time: true
       comments: false
-      share: true
+      share: false
       classes: wide
       header:
         show_overlay_excerpt: false

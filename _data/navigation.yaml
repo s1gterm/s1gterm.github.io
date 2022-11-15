@@ -4,6 +4,7 @@ main:
   - title: "Posts"
     url: /
   - title: "Y-Station"
-    url: https://y-station.s1gterm.com
+    #url: https://y-station.s1gterm.com
+    url: /y-station/
 #  - title: "CTF101"
 #    url: /ctf101/
