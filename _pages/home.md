@@ -13,6 +13,8 @@ header:
   overlay_filter: "0.5"
 ---
 
+
+
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
